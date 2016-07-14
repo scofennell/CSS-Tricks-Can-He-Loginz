@@ -51,8 +51,39 @@ define( 'CSS_TRICKS_CAN_HE_LOGINZ_URL', plugin_dir_url( __FILE__ ) );
 define( 'CSS_TRICKS_CAN_HE_LOGINZ_DIR', plugin_dir_path( __FILE__ ) );
 
 // For each php file in the inc/ folder, require it.
-foreach( glob( CSS_TRICKS_CAN_HE_LOGINZ_DIR . 'inc/*.php' ) as $filename ) {
+function css_tricks_can_he_loginz_init() {
 
-    require_once( $filename );
+	if( ! defined( 'CSS_TRICKS_WP_API_CLIENT' ) ) {
+
+		$out = "<div class='notice error is-dismissible'><p>CSS-Tricks Can He Loginz requires the CSS-Tricks WP API Client for making calls to the control install.</p></div>";
+
+		if( is_network_admin() && ( current_filter() == 'network_admin_notices' ) ) {
+
+			echo $out;
+
+			return FALSE;
+
+		} elseif( ! is_network_admin() && ( current_filter() == 'admin_notices' ) ) {
+
+			echo $out;
+
+			return FALSE;
+
+		}
+
+	} else {
+
+		foreach( glob( CSS_TRICKS_CAN_HE_LOGINZ_DIR . 'inc/*.php' ) as $filename ) {
+
+		    require_once( $filename );
+
+		}
+
+		return TRUE;
+
+	}
 
 }
+add_action( 'plugins_loaded', 'css_tricks_can_he_loginz_init' );
+add_action( 'network_admin_notices', 'css_tricks_can_he_loginz_init' );
+add_action( 'admin_notices', 'css_tricks_can_he_loginz_init' );
