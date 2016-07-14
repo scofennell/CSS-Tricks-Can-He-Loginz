@@ -14,22 +14,22 @@ function css_tricks_can_he_loginz_control_panel_init() {
 	if( ! is_network_admin() ) { return FALSE; }
 
 	// If so, add our control panel.
-	return new CSS_Tricks_Can_He_Loginz();
+	return new CSS_Tricks_Can_He_Loginz_Control_Panel();
 
 }
 add_action( 'plugins_loaded', 'css_tricks_can_he_loginz_control_panel_init', 100 );
 
-class CSS_Tricks_Can_He_Loginz {
+class CSS_Tricks_Can_He_Loginz_Control_Panel extends CSS_Tricks_WP_API_Client_Control_Panel {
 
 	function __construct() {
 
 		// Grab the array of settings.
+		$settings_slug  = CSS_TRICKS_CAN_HE_LOGINZ;
 		$settings       = new CSS_Tricks_Can_He_Loginz_Settings();
 		$settings_array = $settings -> settings_array;
 		$plugin_label   = esc_html__( 'CSS-Tricks Can He Loginz Settings', 'css-tricks-can-he-loginz' );
 
-		// Use the client plugin to add a network settings page.
-		new CSS_Tricks_WP_API_Client_Control_Panel( CSS_TRICKS_CAN_HE_LOGINZ, $settings_array, $plugin_label );
+		parent::__construct( $settings_slug, $settings_array, $plugin_label );
 
 	}
 
