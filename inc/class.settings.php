@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A singleton for getting and setting the CSS-Tricks Can He Loginz options.
+ * A class for getting and setting the CSS-Tricks Can He Loginz options.
  *
  * @package WordPress
  * @subpackage CSS_Tricks_Can_He_Loginz
