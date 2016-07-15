@@ -33,20 +33,10 @@ class CSS_Tricks_Can_He_Loginz_Login_Screen  {
 
 		$out = '';
 
-		$dashicon = '<span class="dashicons dashicons-format-audio"></span>';
-
-		$danger_zone_message = '';
-		$danger_zone_setting = $this -> settings -> get_value( 'zone', 'danger' );
-		if( ! empty( $danger_zone_setting ) ) {
-			$danger_zone_message = "<p>$dashicon <em>" . esc_html__( 'Right into the danger zone!', 'css-tricks-can-he-loginz' ) . '</em></p>';
-		}
-
-		$which_shoes_to_kick_off_message = '';
-		$which_shoes_to_kick_off_message_setting = esc_html( $this -> settings -> get_value( 'kicking_off_shoes', 'which_pair' ) );
-		if( ! empty( $which_shoes_to_kick_off_message_setting ) ) {
-			$which_shoes_to_kick_off_message = '<p><em>' . sprintf( esc_html__( 'Kick off your %s shoes!', 'css-tricks-can-he-loginz' ), $which_shoes_to_kick_off_message_setting ) . "</em> $dashicon</p>";
-		}
-
+		$danger_zone_message = $this -> get_danger_zone_message();
+		
+		$which_shoes_to_kick_off_message = $this -> get_kicking_off_shoes_message();
+		
 		if( ! empty( $which_shoes_to_kick_off_message ) || ! empty( $danger_zone_message ) ) {
 
 			$out = "
@@ -68,6 +58,43 @@ class CSS_Tricks_Can_He_Loginz_Login_Screen  {
 	function the_message() {
 
 		echo $this -> get_message();
+
+	}
+
+	function get_danger_zone_message() {
+
+		$out = '';
+
+		$dashicon = $this -> get_icon();
+
+		$danger_zone_setting = $this -> settings -> get_value( 'zone', 'danger' );
+		if( ! empty( $danger_zone_setting ) ) {
+			$out = "<p>$dashicon <em>" . esc_html__( 'Right into the danger zone!', 'css-tricks-can-he-loginz' ) . '</em></p>';
+		}
+
+		return $out;
+
+	}
+
+	function get_kicking_off_shoes_message() {
+
+		$out = '';
+
+		$dashicon = $this -> get_icon();
+
+		$which_shoes_to_kick_off_message_setting = esc_html( $this -> settings -> get_value( 'kicking_off_shoes', 'which_pair' ) );
+		if( ! empty( $which_shoes_to_kick_off_message_setting ) ) {
+			$out = '<p><em>' . sprintf( esc_html__( 'Kick off your %s shoes!', 'css-tricks-can-he-loginz' ), $which_shoes_to_kick_off_message_setting ) . "</em> $dashicon</p>";
+		}
+
+
+		return $out;
+
+	}
+
+	function get_icon() {
+
+		return '<span class="dashicons dashicons-format-audio"></span>';
 
 	}
 
