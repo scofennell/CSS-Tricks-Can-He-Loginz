@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A class for getting and setting the CSS-Tricks Can He Loginz options.
+ * Check for plugin dependencies.  If they're met, load the plugin.  If not, warn the user.
  *
  * @package WordPress
  * @subpackage CSS_Tricks_Can_He_Loginz
