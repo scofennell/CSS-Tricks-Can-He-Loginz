@@ -57,10 +57,13 @@ class CSS_Tricks_Can_He_Loginz_Settings extends CSS_Tricks_WP_API_Client_CRUD {
 					'notes' => esc_html__( 'Is the zone dangerous?', 'css-tricks-can-he-loginz' ),
 
 					// A sanitization callback for this setting.
-					'sanitize' => 'sanitize_text_field',
+					'sanitize' => 'absint',
 
 					// Designate that this setting comes from the control install.
 					'is_remote' => TRUE,
+
+					// The value for this setting.
+					'value' => 1,
 
 				// End this setting.
 				),
