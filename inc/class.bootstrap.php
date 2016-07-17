@@ -19,17 +19,26 @@ class CSS_Tricks_Can_He_Loginz_Bootstrap {
 
 	function __construct() {
 
+		// Determine if the plugins on which this pluign is dependant, are loaded.
 		$this -> is_ready = $this -> get_is_ready();
 
+		// Attempt to load the files that power our plugin.
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
+
+		// Warn the user about missing dependancies.
 		add_action( 'network_admin_notices', array( $this, 'warn' ) );
 		add_action( 'admin_notices', array( $this, 'warn' ) );
 
 	}
 
+	/**
+	 * Get the answer to the question, are all the dependancies loaded?
+	 * 
+	 * @return boolean TRUE if all dependancies are met, else FALSE.
+	 */
 	function get_is_ready() {
 
-		//  Is the abstraction layer for calling the control blog missing??
+		//  Is the abstraction layer for calling the control blog missing?
 		if( ! defined( 'CSS_TRICKS_WP_API_CLIENT' ) ) {
 
 			return FALSE;
@@ -61,9 +70,13 @@ class CSS_Tricks_Can_He_Loginz_Bootstrap {
 
 	}
 
+	/**
+	 * Print a message to the admin notice area, warning the user about missing dependancies.
+	 * @return [type] [description]
+	 */
 	function warn() {
 
-		//  Is the abstraction layer for calling the control blog missing??
+		//  Is the abstraction layer for calling the control blog missing?
 		if( $this -> is_ready ) { return FALSE; }
 
 		// Then create an error message.
@@ -87,6 +100,11 @@ class CSS_Tricks_Can_He_Loginz_Bootstrap {
 
 	}
 
+	/**
+	 * Get the text for warning the user about missing dependancies.
+	 * 
+	 * @return string The text for warning the user about missing dependancies.
+	 */
 	function get_message() {
 
 		$message = esc_html__( 'CSS-Tricks Can He Loginz requires the CSS-Tricks WP API Client for making calls to the control install.', 'css-tricks-can-he-loginz' );

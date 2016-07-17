@@ -139,12 +139,12 @@ class CSS_Tricks_Can_He_Loginz_Login_Screen  {
 		$out = "
 			<style>
 				body.login h1 a {
-					background-image: url( $src );
-					display: block;
-					max-width: 100%;
-					width: $login_width;
-					height: $login_width;
-					background-size: 100%;
+					background-image  : url( $src );
+					display           : block;
+					max-width         : 100%;
+					width             : $login_width;
+					height            : $login_width;
+					background-size   : 100%;
 				}
 			</style>
 		";	
