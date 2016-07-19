@@ -13,10 +13,6 @@ function css_tricks_can_he_loginz_control_panel_init() {
 	// Are we in the admin area?
 	if( ! is_network_admin() ) { return FALSE; }
 
-	if( ! isset( $_GET['page'] ) ) { return FALSE; }
-
-	if( $_GET['page'] != CSS_TRICKS_CAN_HE_LOGINZ ) { return FALSE; }
-
 	// If so, add our control panel.
 	return new CSS_Tricks_Can_He_Loginz_Control_Panel();
 

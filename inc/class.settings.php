@@ -8,7 +8,7 @@
  * @since CSS_Tricks_Can_He_Loginz 1.0
  */
 
-class CSS_Tricks_Can_He_Loginz_Settings {
+class CSS_Tricks_Can_He_Loginz_Settings extends CSS_Tricks_WP_API_Client_CRUD {
 
 	/**
 	 * Call the parent class, handing it our settings_slug and our settings.
