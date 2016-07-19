@@ -8,14 +8,15 @@
  * @since CSS_Tricks_Can_He_Loginz 1.0
  */
 
-class CSS_Tricks_Can_He_Loginz_Settings extends CSS_Tricks_WP_API_Client_CRUD {
+class CSS_Tricks_Can_He_Loginz_Settings {
 
 	/**
 	 * Call the parent class, handing it our settings_slug and our settings.
 	 */
 	public function __construct() {
 
-		parent::__construct( $this -> get_settings_slug(), $this -> get_settings_array() );
+		$this -> set_settings_slug();
+		$this -> set_settings_array();
 
 	}
 
@@ -24,14 +25,14 @@ class CSS_Tricks_Can_He_Loginz_Settings extends CSS_Tricks_WP_API_Client_CRUD {
 	 * 
 	 * @return string The unique namespace for our plugin settings.
 	 */
-	public function get_settings_slug() { return CSS_TRICKS_CAN_HE_LOGINZ; }
+	public function set_settings_slug() { $this -> settings_slug = CSS_TRICKS_CAN_HE_LOGINZ; }
 
 	/**
 	 * Define our multidimensional array of sections and settings.
 	 * 
 	 * @return array A multidimensional array of sections and settings.
 	 */
-	public function get_settings_array() {
+	public function set_settings_array() {
 
 		$out = array();
 
@@ -107,7 +108,7 @@ class CSS_Tricks_Can_He_Loginz_Settings extends CSS_Tricks_WP_API_Client_CRUD {
 		// End this section.
 		);
 		
-		return $out;
+		$this -> settings_array = $out;
 
 	}
 

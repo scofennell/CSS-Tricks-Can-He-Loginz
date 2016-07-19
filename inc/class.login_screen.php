@@ -13,7 +13,7 @@ function css_tricks_can_he_loginz_login_screen_init() {
 	new CSS_Tricks_Can_He_Loginz_Login_Screen;
 
 }
-add_action( 'plugins_loaded', 'css_tricks_can_he_loginz_login_screen_init', 100 );
+add_action( 'login_enqueue_scripts', 'css_tricks_can_he_loginz_login_screen_init', 1 );
 
 class CSS_Tricks_Can_He_Loginz_Login_Screen  {
 
