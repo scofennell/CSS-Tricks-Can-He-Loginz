@@ -18,7 +18,7 @@ add_action( 'login_enqueue_scripts', 'css_tricks_can_he_loginz_login_screen_init
 class CSS_Tricks_Can_He_Loginz_Login_Screen  {
 
 	public function __construct() {
-
+		
 		// Grab the class which manages our settings, both local and remote.
 		$this -> settings = new CSS_Tricks_Can_He_Loginz_Settings;
 

@@ -18,6 +18,8 @@ class CSS_Tricks_Can_He_Loginz_Settings extends CSS_Tricks_WP_API_Client_CRUD {
 		$this -> set_settings_slug();
 		$this -> set_settings_array();
 
+		parent::__construct( $this -> settings_slug, $this -> settings_array );
+
 	}
 
 	/**

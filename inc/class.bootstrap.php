@@ -72,7 +72,8 @@ class CSS_Tricks_Can_He_Loginz_Bootstrap {
 
 	/**
 	 * Print a message to the admin notice area, warning the user about missing dependancies.
-	 * @return [type] [description]
+	 * 
+	 * @return boolean Returns FALSE if there is nothing to warn about, else returns TRUE.
 	 */
 	function warn() {
 
