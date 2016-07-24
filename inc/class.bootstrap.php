@@ -8,6 +8,12 @@
  * @since CSS_Tricks_Can_He_Loginz 1.0
  */
 
+/**
+ * Fire up our plugin by checking for dependancies and requiring files.
+ * 
+ * It's worth noting that this occurs at slot #1 in the plugins_loaded action.
+ * We have to do this before any other component of our plugin attempts to run.
+ */
 function css_tricks_ce_he_loginz_bootstrap_init() {
 
 	new CSS_Tricks_Can_He_Loginz_Bootstrap;
@@ -20,7 +26,7 @@ class CSS_Tricks_Can_He_Loginz_Bootstrap {
 	function __construct() {
 
 		// Determine if the plugins on which this pluign is dependant, are loaded.
-		$this -> is_ready = $this -> get_is_ready();
+		$this -> set_is_ready();
 
 		// Attempt to load the files that power our plugin.
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
@@ -36,16 +42,16 @@ class CSS_Tricks_Can_He_Loginz_Bootstrap {
 	 * 
 	 * @return boolean TRUE if all dependancies are met, else FALSE.
 	 */
-	function get_is_ready() {
+	function set_is_ready() {
 
 		//  Is the abstraction layer for calling the control blog missing?
 		if( ! defined( 'CSS_TRICKS_WP_API_CLIENT' ) ) {
 
-			return FALSE;
+			$this -> is_ready = FALSE;
 
 		}
 
-		return TRUE;
+		$this -> is_ready = TRUE;
 
 	}
 

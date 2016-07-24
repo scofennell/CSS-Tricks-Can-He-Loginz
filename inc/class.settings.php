@@ -47,7 +47,7 @@ class CSS_Tricks_Can_He_Loginz_Settings extends CSS_Tricks_WP_API_Client_CRUD {
 			// The array of settings for this section.
 			'settings' => array(				
 
-        	    // The setting for designating if the highway leads to a zone that carries some measure of danger.
+				// The setting for designating if the highway leads to a zone that carries some measure of danger.
 				'danger' => array(
 
 					// The user-facing label text for this setting.
@@ -86,7 +86,7 @@ class CSS_Tricks_Can_He_Loginz_Settings extends CSS_Tricks_WP_API_Client_CRUD {
 			// The array of settings for this section.
 			'settings' => array(				
 
-        	    // The setting for determining which pair of shoes are to be kicked off.
+				// The setting for determining which pair of shoes are to be kicked off.
 				'which_pair' => array(
 
 					// The user-facing label text for this setting.

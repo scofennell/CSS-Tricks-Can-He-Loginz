@@ -23,11 +23,11 @@ class CSS_Tricks_Can_He_Loginz_Control_Panel extends CSS_Tricks_WP_API_Client_Co
 
 	function __construct() {
 
-		// The meta_key for our plugin options in the database.
-		$settings_slug = CSS_TRICKS_CAN_HE_LOGINZ;
-
 		// The class for defnining our array of settings.
 		$settings = new CSS_Tricks_Can_He_Loginz_Settings();
+
+		// The meta_key for our plugin options in the database.
+		$settings_slug = $settings -> settings_slug;
 		
 		// The array of settings for this plugin.
 		$settings_array = $settings -> settings_array;

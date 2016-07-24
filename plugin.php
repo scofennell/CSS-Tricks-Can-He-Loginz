@@ -5,7 +5,7 @@
  */
 
 /**
- * Plugin Name: CSS-Tricks Can He Loginz
+ * Plugin Name: CSS-Tricks Can He Loginz?
  * Plugin URI: https://css-tricks.com
  * Description: A plugin for adding a photograph of American singer/songwriter Kenny Loggins to the login screen.
  * Version: 1.0
